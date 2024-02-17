@@ -22,20 +22,20 @@ export let login = async (req, res) => {
           user.gender
         );
 
+
         await generateToken(data, res);
         return res
           .status(200)
           .send(new ResponseClass("Login Success", true, data));
       } else {
-        return res
-          .status(400)
-          .send(new ResponseClass("password is incorrect", true));
+        throw new Error("Password is Wrong")
       }
     } else {
-      return res.status(404).send(new ResponseClass("User not found", false));
+       throw new Error("User not found")
     }
   } catch (err) {
-    return res.status(500).send(new ResponseClass(err.message, false));
+
+    return res.status(200).send(new ResponseClass(err.message, false));
   }
 };
 
@@ -46,7 +46,6 @@ export let signup = async (req, res) => {
     let salt = await bcryptjs.genSalt(10);
     let hashPass = await bcryptjs.hash(password, salt);
 
-    console.log(hashPass);
     let user = await User.create({
       firstName,
       lastName,
@@ -57,11 +56,22 @@ export let signup = async (req, res) => {
     });
 
     if (user) {
-      return res.status(400).send(new ResponseClass("Success to create", true));
+      let data = new UserClass(
+        user._id,
+        user.firsteName,
+        user.lastName,
+        user.email,
+        user.profilePic,
+        user.gender
+      );
+
+      return res
+        .status(200)
+        .send(new ResponseClass("Success to Create", true, data));
     }
-    return res.status(400).send(new ResponseClass("Failed to create", false));
+    throw new Error("Invalid Credential")
   } catch (err) {
-    return res.status(500).send(new ResponseClass(err.message, false));
+    return res.status(200).send(new ResponseClass(err.message, false));
   }
 };
 export let logout = async (req, res) => {
