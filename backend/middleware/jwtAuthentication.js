@@ -25,6 +25,7 @@ export const jwtAuthentication = async (req, res, next) => {
 
     next();
   } catch (err) {
+    console.log(err)
     return res.status(500).send(new ResponseClass(err.message, false));
   }
 };
