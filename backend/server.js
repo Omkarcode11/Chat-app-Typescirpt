@@ -1,5 +1,5 @@
-import express from 'express'
 import path from "path"
+import express from 'express'
 import dotenv from 'dotenv'
 import { connectToMongoDB } from './db/connect.mongodb.js'
 import cookieParser from 'cookie-parser'
@@ -14,8 +14,8 @@ const __dirname = path.resolve()
 
 dotenv.config()
 app.use(cors({ credentials: true, origin: true }))
-app.use(cookieParser())
 app.use(express.json())
+app.use(cookieParser())
 
 app.use(router)
 
@@ -26,7 +26,7 @@ app.get("*",(req,res)=>{
 })
 
 
-server.listen(PORT, async()=>{
-    await connectToMongoDB()
+server.listen(PORT, ()=>{
+     connectToMongoDB()
     console.log('server listening on port '+PORT)
 })
