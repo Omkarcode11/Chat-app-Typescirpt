@@ -28,7 +28,7 @@ const Messages: React.FC = () => {
     <>
     {loading==false && messages.length==0 && <p className="text-center">Send the message to start the conversation </p>}
       {loading ? (
-        new Array(4).fill(0).map((ele) => <MessageSkeleton />)
+        new Array(4).fill(0).map(( ) => <MessageSkeleton />)
       ) : (
         <div className='px-4 flex-1 overflow-auto'>
           {messages?.map((ele: messages) => (

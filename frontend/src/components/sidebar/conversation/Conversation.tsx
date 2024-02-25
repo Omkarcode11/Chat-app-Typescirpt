@@ -1,12 +1,7 @@
 import React from "react";
 import { conversationType } from "../../../utils/Interfaces";
-import getRandomEmojis from "../../../utils/emojis";
 import useConversationContext from "../../../store/zustand";
 import { useSocketContext } from "../../../context/SocketContext";
-interface zustandType{
-  selectedConversation:string | null 
-  setSelectedConversation:(id:string)=>void
-}
 
 
 const Conversation: React.FC<conversationType> = ({ firstName, lastName, profilePic, gender,_id ,emoji}) => {

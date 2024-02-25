@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import useConversationContext from "../store/zustand";
 import { messages } from "../utils/Interfaces";
 import toast from "react-hot-toast";
@@ -16,7 +16,7 @@ interface getMessage {
 
 export default function useGetMessage():getMessage {
   const [loading, setLoading] = useState<boolean>(false);
-  const { selectedConversation, setMessages, messages } =
+  const { selectedConversation, setMessages } =
     useConversationContext();
 
   const getMessages = async () => {

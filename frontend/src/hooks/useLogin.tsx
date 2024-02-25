@@ -1,6 +1,4 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { ResUser } from "../utils/Interfaces";
+import  { useState } from "react";
 import toast from "react-hot-toast";
 import { useAuthContext } from "../context/Authcontext";
 import { useNavigate } from "react-router-dom";

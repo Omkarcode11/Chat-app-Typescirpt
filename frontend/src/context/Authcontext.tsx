@@ -6,7 +6,7 @@ import {
   useContext,
   useState,
 } from "react";
-import { ResUser, User } from "../utils/Interfaces";
+import { ResUser } from "../utils/Interfaces";
 
 interface AuthContextType {
   user: ResUser;
@@ -27,7 +27,7 @@ const defaultState = {
     profilePic: "",
     id:""
   },
-  setUser: (user: ResUser) => {},
+  setUser: ():void => {},
 } as AuthContextType;
 
 export const AuthContext = createContext(defaultState);

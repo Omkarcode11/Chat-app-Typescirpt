@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from "react";
 import useConversationContext from "../store/zustand";
 import toast from "react-hot-toast";

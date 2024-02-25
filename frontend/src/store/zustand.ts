@@ -1,4 +1,4 @@
-import { create, SetState } from "zustand";
+import { create } from "zustand";
 import { conversationType, messages } from "../utils/Interfaces";
 
 type ConversationContextState = {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { ResUser, User } from "../utils/Interfaces";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -18,7 +18,7 @@ interface useSignUpReturn {
 
 const useSignUp = (): useSignUpReturn => {
   const navigate = useNavigate();
-  const {user,setUser} = useAuthContext()
+  const {setUser} = useAuthContext()
   const [loading, setLoading] = useState<boolean>(false);
 
   async function signUp(obj: User) {
