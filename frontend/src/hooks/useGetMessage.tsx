@@ -25,7 +25,7 @@ export default function useGetMessage():getMessage {
       setLoading(true);
 
       let data = await fetch(
-        `${BASE_URL}/message/get/${selectedConversation?._id}`,
+        `${BASE_URL}message/get/${selectedConversation?._id}`,
         {
           method: "GET",
           headers: {

@@ -25,7 +25,7 @@ const useSendMessage = (): sendMessage => {
       setLoading(true);
      
       let data = await fetch(
-        `${BASE_URL}/message/send/${selectedConversation?._id}`,
+        `${BASE_URL}message/send/${selectedConversation?._id}`,
         {
           method: "POST",
           headers: {
