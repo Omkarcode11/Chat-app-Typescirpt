@@ -4,6 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/Authcontext";
+import { BASE_URL } from "../utils/constants";
 
 interface signUpResponse {
   data:ResUser 
@@ -28,7 +29,7 @@ const useSignUp = (): useSignUpReturn => {
 
     setLoading(true);
     try {
-      data = (await axios.post("http://localhost:8080/auth/signup", obj,{withCredentials: true})).data;
+      data = (await axios.post(BASE_URL+"auth/signup", obj,{withCredentials: true})).data;
       if (!data.status) {
         if (typeof data.message == "string") toast.error(data.message);
       } else { 

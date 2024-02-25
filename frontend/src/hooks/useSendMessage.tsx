@@ -2,6 +2,7 @@ import { useState } from "react";
 import useConversationContext from "../store/zustand";
 import toast from "react-hot-toast";
 import { messages } from "../utils/Interfaces";
+import { BASE_URL } from "../utils/constants";
 
 interface sendMessage {
   loading: boolean;
@@ -22,10 +23,9 @@ const useSendMessage = (): sendMessage => {
   const sendMessage = async (message: string) => {
     try {
       setLoading(true);
-      // let res = await (await axios.post(`http://localhost:8080/message/send/${selectedConversation?._id}`,message,{withCredentials:true})).data
-      
+     
       let data = await fetch(
-        `http://localhost:8080/message/send/${selectedConversation?._id}`,
+        `${BASE_URL}/message/send/${selectedConversation?._id}`,
         {
           method: "POST",
           headers: {

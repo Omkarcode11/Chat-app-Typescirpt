@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { responseLogout,ResUser } from "../utils/Interfaces";
 import { useAuthContext } from "../context/Authcontext";
+import { BASE_URL } from "../utils/constants";
 
 interface useLogoutFn {
   loading: boolean;
@@ -18,7 +19,7 @@ const useLogout = (): useLogoutFn => {
 
   const logOut = async() => {
     setLoading(false);
-    let data:responseLogout = await (await axios.post('http://localhost:8080/auth/logout')).data
+    let data:responseLogout = await (await axios.post(BASE_URL+'auth/logout')).data
     if(data.status){
          
         localStorage.clear();

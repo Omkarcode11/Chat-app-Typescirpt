@@ -1,6 +1,7 @@
 import React, { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 import { useAuthContext } from './Authcontext'
 import io from 'socket.io-client'
+import { BASE_URL } from '../utils/constants';
 
 const socketContext = createContext<{socket:any; onlineUser:any}>({} as any)
 
@@ -20,7 +21,7 @@ const SocketContextProvider: React.FC<{ children: ReactNode }> = ({ children }) 
         let newSocket: any; // Declare a new variable to avoid shadowing
     
         if (user?.id) {
-            newSocket = io('http://localhost:8080',{
+            newSocket = io(BASE_URL,{
               query:{
                  userId: user.id
               }

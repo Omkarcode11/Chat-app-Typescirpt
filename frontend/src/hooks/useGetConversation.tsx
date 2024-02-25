@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import getRandomEmojis from "../utils/emojis";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../utils/constants";
 
 interface conversationReturn {
   loading: boolean;
@@ -33,8 +34,7 @@ const useConversationState = (): conversationReturn => {
 
   async function getConversation() {
     try {
-      // let users: User = (await axios.get("http://localhost:8080/user")).data;
-      let data= await fetch("http://localhost:8080/user",
+      let data= await fetch(BASE_URL+"user",
       {
         method: "GET",
         headers: {

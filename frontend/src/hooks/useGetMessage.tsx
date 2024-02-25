@@ -2,6 +2,7 @@ import  { useState } from "react";
 import useConversationContext from "../store/zustand";
 import { messages } from "../utils/Interfaces";
 import toast from "react-hot-toast";
+import { BASE_URL } from "../utils/constants";
 
 interface resMessage {
   data: messages[];
@@ -24,7 +25,7 @@ export default function useGetMessage():getMessage {
       setLoading(true);
 
       let data = await fetch(
-        `http://localhost:8080/message/get/${selectedConversation?._id}`,
+        `${BASE_URL}/message/get/${selectedConversation?._id}`,
         {
           method: "GET",
           headers: {

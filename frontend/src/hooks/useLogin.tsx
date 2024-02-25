@@ -2,6 +2,7 @@ import  { useState } from "react";
 import toast from "react-hot-toast";
 import { useAuthContext } from "../context/Authcontext";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../utils/constants";
 
 interface credential {
   email: string;
@@ -29,8 +30,7 @@ const useLogin = (): useLoginReturn => {
     let payload: string = JSON.stringify(cred);
     let data;
     try {
-      //  data = (await axios.post("http://localhost:8080/auth/login", cred,{withCredentials: true})).data;
-      data = await fetch("http://localhost:8080/auth/login", {
+      data = await fetch(BASE_URL+"auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
