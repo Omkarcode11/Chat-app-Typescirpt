@@ -11,12 +11,12 @@ const Home: React.FC = () => {
   const navigate = useNavigate()
 
   const {selectedConversation,setSelectedConversation} = useConversationContext() 
+
    
    useEffect(()=>{
     if(!user.id){
        navigate("/signup")
     }
-
    },[])
 
    useEffect(()=>{

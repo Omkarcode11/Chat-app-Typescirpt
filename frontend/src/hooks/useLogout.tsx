@@ -19,9 +19,8 @@ const useLogout = (): useLogoutFn => {
 
   const logOut = async() => {
     setLoading(false);
-    let data:responseLogout = await (await axios.post(BASE_URL+'auth/logout')).data
+    let data:responseLogout =      (await axios.post(BASE_URL+'auth/logout')).data
     if(data.status){
-         
         localStorage.clear();
         setLoading(true);
         toast.success(data.message)
