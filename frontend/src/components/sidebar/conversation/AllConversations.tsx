@@ -5,8 +5,6 @@ import useConversationState from '../../../hooks/useGetConversation';
 const AllConversations: React.FC = () => {
   let { loading, conversation } = useConversationState();
 
-
-
   return (
     <>
       {loading ? (

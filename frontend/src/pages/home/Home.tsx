@@ -13,13 +13,11 @@ const Home: React.FC = () => {
   const {selectedConversation,setSelectedConversation} = useConversationContext() 
 
    
+ 
    useEffect(()=>{
     if(!user.id){
-       navigate("/signup")
-    }
-   },[])
-
-   useEffect(()=>{
+      navigate("/login")
+   }
     return setSelectedConversation({...selectedConversation,_id :""} as any)
    },[])
 

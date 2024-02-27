@@ -25,9 +25,9 @@ const defaultState = {
     email: "",
     password: "",
     profilePic: "",
-    id:""
+    id: "",
   },
-  setUser: ():void => {},
+  setUser: (): void => {},
 } as AuthContextType;
 
 export const AuthContext = createContext(defaultState);

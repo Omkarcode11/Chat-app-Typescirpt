@@ -7,16 +7,16 @@ import toast from 'react-hot-toast';
 const SearchInput:React.FC=()=> {
   const [search,setSearch] = useState<string>('')
   const {setSelectedConversation} = useConversationContext()
-  const {conversation}= useConversationState()
   
   function searchHandler(e: React.FormEvent<HTMLFormElement>):void {
-     e.preventDefault()
-     if(search.length==0)return 
-     if(search.length<=3){
+    e.preventDefault()
+    if(search.length==0)return 
+    if(search.length<=3){
       toast.error("Search query must be greater than 3 character")
       return 
-     }
-
+    }
+    
+    const {conversation}= useConversationState()
      let newConversation = conversation.find((ele)=>(ele.firstName+ " " + ele.lastName).toLocaleLowerCase().includes(search.toLocaleLowerCase()))
 
      if(!newConversation){

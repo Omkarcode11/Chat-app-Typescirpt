@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import getRandomEmojis from "../utils/emojis";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
+import { useAuthContext } from "../context/Authcontext";
 
 interface conversationReturn {
   loading: boolean;
@@ -30,10 +31,18 @@ interface User {
 const useConversationState = (): conversationReturn => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState<boolean>(false);
+  const {user}  = useAuthContext()
   const [conversation, setConversation] = useState<User[]>([]);
 
   async function getConversation() {
     try {
+      if(!user.id){
+        return 
+      }
+      if(conversation.length>0){
+        return 
+      }
+
       let data= await fetch(BASE_URL+"user",
       {
         method: "GET",
@@ -64,7 +73,7 @@ const useConversationState = (): conversationReturn => {
 
   useEffect(() => {
     getConversation();
-  }, []);
+  }, [user.id]);
 
   return { loading, conversation };
 };
