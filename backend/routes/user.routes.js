@@ -5,7 +5,7 @@ import jwtAuthentication from '../middleware/jwtAuthentication.js'
 
 const userRoute = express.Router()
 
-userRoute.get("/getUser/:id",getUserById)
+userRoute.get("/getUser/:id",jwtAuthentication,getUserById)
 userRoute.get("/" ,jwtAuthentication,getAllUser)
 
 

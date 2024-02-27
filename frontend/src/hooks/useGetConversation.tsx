@@ -57,7 +57,7 @@ const useConversationState = (): conversationReturn => {
       if(resData.status==false){
           navigate("/login")
           toast.error("Session expired")
-           
+           return 
       }  
       let users:User[] = resData.data
       toast.success("Success to get Conversations");
