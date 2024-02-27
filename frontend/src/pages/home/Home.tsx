@@ -12,8 +12,7 @@ const Home: React.FC = () => {
 
   const {selectedConversation,setSelectedConversation} = useConversationContext() 
 
-   
- 
+
    useEffect(()=>{
     if(!user.id){
       navigate("/login")
